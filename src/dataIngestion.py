@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+'''
+FILE: dataIngestion.py
+
+DESCRIPTION: This file collects the data needed for this project
+'''
+
 import requests
 from bs4 import BeautifulSoup
 import re
