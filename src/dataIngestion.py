@@ -20,9 +20,9 @@ import os
 
 
 '''
-FUNCTION: get_table()
+FUNCTION: get_table(website)
 
-INPUTS: None
+INPUTS: website: url for wiki page with list of nominees and winners
 
 OUTPUTS: returns the Wikipedia html table that needs to be scraped 
 
@@ -30,9 +30,9 @@ DESCRIPTION: This function takes the wikipedia link and finds the table that
   contains all the winners and nominees for the Best Actor Oscar award on that webpage
   and returns the table.
 '''
-def get_table():
+def get_table(website):
     #webpage url
-    url = 'https://en.wikipedia.org/wiki/Academy_Award_for_Best_Actor'
+    url = website
     page = requests.get(url)
     
     #creates beautiful soup object
@@ -44,21 +44,19 @@ return table
 
 
 '''
-FUNCTION: create_csv_of_actors()
+FUNCTION: create_csv_of_actors(website, outdir)
 
-INPUTS: None
+INPUTS: website: url for wiki page with list of nominees and winners
+        outdir: directory to write csv files to
 
 OUTPUTS: None (writes csv to file)
 
 DESCRIPTION: This function parses through the table of the Best Actor Oscar award 
   winners and nomineed writes the table to a csv file.
 '''
-def create_csv_of_actors():
-    #get the current directory
-    current_directory = os.getcwd()
-    
+def create_csv_of_actors(website ,outdir): #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     #gets the correct table to parse
-    table = get_table()
+    table = get_table(website)
     
     #loops through all the rows in the table
     for row in table.find_all('tr'):
@@ -114,7 +112,7 @@ def create_csv_of_actors():
             lst = [year, actor, role, movie, link, False]
             
         #write row to csv file
-        with open(current_directory + "/actorsTemp.csv",'a+', newline='') as outF:
+        with open(outdir + "actorsTemp.csv",'a+', newline='') as outF:
                 writer = csv.writer(outF, dialect='excel')
                 writer.writerow(lst)
                 
@@ -122,13 +120,13 @@ def create_csv_of_actors():
 '''
 FUNCTION: add_ethnicity_to_nominees_and_winners()
 
-INPUTS: None
+INPUTS: outdir: directory to write csv files to
 
 OUTPUTS: None (writes changes to csv file)
 
 DESCRIPTION: This function takes the created actors csv file and add the actor's ethnicity to it.
 '''
-def add_ethnicity_to_nominees_and_winners()
+def add_ethnicity_to_nominees_and_winners(outdir):
      #loads the actors csv file
     table = pd.read_csv("actors.csv")
     table.head()
@@ -184,15 +182,16 @@ def add_ethnicity_to_nominees_and_winners()
             
     #add ethnicity to table and write to csv file
     table["Ethnicity"] = ethnicity
-    current_directory = os.getcwd()
-    table.to_csv(current_directory + '/actorsWithEthnicity.csv', index = False)
+    
+    table.to_csv(outdir + 'actorsWithEthnicity.csv', index = False)
     
     
 '''
-FUNCTION: create_csv_per_year()
+FUNCTION: create_csv_per_year(tableNum, year, outdir)
 
 INPUTS: tableNum: which table on the html page to scrape
         year: which year of movies to scrape
+        outfir: diectory to write csv files to
 
 OUTPUTS: None (writes to csv file)
 
@@ -200,9 +199,8 @@ DESCRIPTION: This function takes a Wikipedia page of all the movies created in t
     year and scrapes the information on the movie and the list of main characters' actors and writes
     the table to a csv file. 
 '''
-def create_csv_per_year(tabNum, year):
-    os.mkdir('ListOfMovPerYear')
-    directory = os.getcwd() + '/ListOfMovPerYear'
+def create_csv_per_year(tabNum, year, outdir):
+    os.mkdir(outdir + 'ListOfMovPerYear')
     
     #find the correct url for that year and create a beautiful soup object
     url = 'https://en.wikipedia.org/wiki/List_of_American_films_of_{}'.format(year)
@@ -239,7 +237,7 @@ def create_csv_per_year(tabNum, year):
             #reset counter and fields every row and write row to csv file
             if count == 5:
                 lst = [title, actors]
-                with open(directory + "/{}.csv".format(year),'a+', newline='') as outF:
+                with open(outdir + 'ListOfMovPerYear' + "/{}.csv".format(year),'a+', newline='') as outF:
                     writer = csv.writer(outF, dialect='excel')
                     writer.writerow(lst)
                 
@@ -249,18 +247,33 @@ def create_csv_per_year(tabNum, year):
                 
 
 '''
-FUNCTION: all_movies_per_year()
+FUNCTION: all_movies_per_year(outdir)
 
-INPUTS: None
+INPUTS: outdir: directory to write csv files to
 
 OUTPUTS: None (writes to csv file)
 
 DESCRIPTION: This function calls on other functions to create the csv
     files for the all the movies made each year between 1934 and 2019
 '''
-def all_movies_per_year():
+def all_movies_per_year(outdir):
     for year in range(1934, 1993):
-        create_csv_per_year(1,year)
+        create_csv_per_year(1,year, outdir)
 
     for year in range(1993, 2020):
-        create_csv_per_year(2,year)
+        create_csv_per_year(2,year, outdir)
+
+        
+def collect_data(websites, outdir):
+  if outdir and not os.path.exists(outdir):
+        os.makedirs(outdir)
+  
+  create_csv_of_actors(websites[0],outdir)
+  
+  #-----TODO - clean up actors.csv -------
+  
+  add_ethnicity_to_nominees_and_winners(outdir)
+  
+  all_movies_per_year(outdir)
+  
+  
