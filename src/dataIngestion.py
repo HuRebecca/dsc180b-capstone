@@ -129,7 +129,6 @@ DESCRIPTION: This function takes the created actors csv file and add the actor's
 def add_ethnicity_to_nominees_and_winners(outdir):
      #loads the actors csv file
     table = pd.read_csv("actors.csv")
-    table.head()
 
     #get a list of the actors and reformat it to be used in url
     actors = table["Actor"]
@@ -263,17 +262,69 @@ def all_movies_per_year(outdir):
     for year in range(1993, 2020):
         create_csv_per_year(2,year, outdir)
 
+         
+'''
+FUNCTION: only_males(outdir)
+
+INPUTS: outdir: directory to write csv files to
+
+OUTPUTS: None (writes to csv file)
+
+DESCRIPTION: This function gets the gender of the people who acted in each movie
+'''
+def only_males(outdir):
+    os.mkdir(outdir + 'ListOfMovPerYearCleaned')
+
+    for file in tqdm(os.listdir(directory)):
+        tab = pd.read_csv(directory + '/' + file, header = None)
+
+        lists = tab[1]
+        Males = []
+        for lst in lists:
+            lst = lst.replace('[', "")
+            lst = lst.replace(']', "")
+            lst = lst.replace('\'', "")
+            lst = lst.split(',')
+            lst = [x.lstrip() for x in lst]
+            tempLst = lst
+            lst = [x[0:x.find(" ")] for x in lst]
+
+            males = []
+            count = 0
+            for name in lst:
+                url = 'http://www.namegenderpro.com/search-result/?gender_name={}'.format(name)
+                page = requests.get(url)
+                soup = BeautifulSoup(page.content, 'html.parser')
+
+                if "Female" in soup.findAll("div", {"class": "searchresult_top_heading"})[0].text:
+                    count = count + 1
+                    continue
+
+                elif "Male" in soup.findAll("div", {"class": "searchresult_top_heading"})[0].text:
+                    males.append(tempLst[count])
+                    break
+
+                count = count + 1
+
+            Males.append(males)
+            
+        tab["Males"] = Males
+        tab.to_csv(outdir + 'ListOfMovePerYearCleaned/{}'.format(file), index = False)
+        
+        
         
 def collect_data(websites, outdir):
-  if outdir and not os.path.exists(outdir):
+    if outdir and not os.path.exists(outdir):
         os.makedirs(outdir)
+        
+    create_csv_of_actors(websites[0],outdir)
   
-  create_csv_of_actors(websites[0],outdir)
+    #-----TODO - clean up actors.csv -------
   
-  #-----TODO - clean up actors.csv -------
+    add_ethnicity_to_nominees_and_winners(outdir)
   
-  add_ethnicity_to_nominees_and_winners(outdir)
-  
-  all_movies_per_year(outdir)
+    all_movies_per_year(outdir)
+    
+    only_males(outdir)
   
   
