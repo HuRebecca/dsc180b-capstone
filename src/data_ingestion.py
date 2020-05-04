@@ -364,13 +364,13 @@ def all_movies_per_year(outdir):
         
     #gather info per year from 1934-1935
     for year in range(1934, 1993):
-        create_csv_per_year(1,year)
+        create_csv_per_year(1,year, outdir)
 
     for year in range(1993, 2004):
-        create_csv_per_year(2,year)
+        create_csv_per_year(2,year, outdir)
         
     for year in range(2004, 2009):
-        create_csv_per_year_extra(2,year)
+        create_csv_per_year(2,year, outdir)
         
 
 '''
