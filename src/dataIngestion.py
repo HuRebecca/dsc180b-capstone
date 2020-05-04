@@ -39,8 +39,8 @@ def get_table(website):
     soup = BeautifulSoup(page.content, 'html.parser')
     table = soup.find_all('table')[2]
     
-#return the correct table
-return table
+    #return the correct table
+    return table
 
 
 '''
