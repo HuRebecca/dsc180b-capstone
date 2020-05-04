@@ -595,8 +595,8 @@ OUTPUTS: None (writes to csv file)
 
 DESCRIPTION: This function gets the html table to scrape
 '''
-def get_table_gg(num):  
-    url = "https://en.wikipedia.org/wiki/Golden_Globe_Award_for_Best_Actor_%E2%80%93_Motion_Picture_Musical_or_Comedy"
+def get_table_gg(num): 
+    url = "https://en.wikipedia.org/wiki/Golden_Globe_Award_for_Best_Actor_%E2%80%93_Motion_Picture_Drama"
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     table = soup.find_all('table')[num]
@@ -614,7 +614,7 @@ DESCRIPTION: This function parses through the table of the Best Actor Golden
     Globe award winners and nominees and writes the table to a csv file.
 '''
 def create_csv_of_gg(outdir):
-    for num in range(1,8):
+    for num in range(1,9):
         table = get_table_gg(num)
 
         year = ""
@@ -634,7 +634,7 @@ def create_csv_of_gg(outdir):
                         #print("YEAR: ", year)
 
                     if count == 1:
-                        actor = td.text
+                        actor = td.text.strip('\n')
                         #print("ACTOR: ", actor)
 
                     if count == 3:
@@ -652,7 +652,7 @@ def create_csv_of_gg(outdir):
                     if count == 1:
                         #print("YEAR: ", year)
 
-                        actor = td.text
+                        actor = td.text.strip('\n')
                         #print("ACTOR: ", actor)
 
                     if count == 3:
@@ -662,7 +662,7 @@ def create_csv_of_gg(outdir):
 
             if done == True:
                 lst = [year, actor, movie, winner]
-                with open(outdir + "/golden_globes.csv",'a+', newline='') as outF:
+                with open(outdir + "/golden_globes_drama.csv",'a+', newline='') as outF:
                     writer = csv.writer(outF, dialect='excel')
                     writer.writerow(lst)
                    
@@ -677,7 +677,7 @@ OUTPUTS: None (writes to csv file)
 DESCRIPTION: This function addss ethnicities to Golden Globe winners and nominees
 '''
 def get_ethnicities_gg(outdir):
-    table = pd.read_csv(outdir + "/golden_globes.csv", header = None)
+    table = pd.read_csv(outdir + "/golden_globes_drama.csv", header = None)
     table.columns = ["year", "actor", "movie", "winner"]
 
     actors = table["actor"]
@@ -712,7 +712,7 @@ def get_ethnicities_gg(outdir):
     
     table["ethnicity"] = ethnicity
     
-    table.to_csv(outdir + '/goldenGlobesWithEthnicity.csv', index = False)
+    table.to_csv(outdir + '/goldenGlobesDramaWithEthnicity.csv', index = False)
     
 '''
 FUNCTION: test_ingestion(websites, outdir)
