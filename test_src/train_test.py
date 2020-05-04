@@ -572,8 +572,137 @@ def clean_actorsTemp(fp, outdir):
     
     #remove temp file
     os.remove(outdir + "actorsTemp.csv")
+
     
+'''
+FUNCTION: get_table_gg(num)
+
+INPUTS: num: table num in html to scrape
+
+OUTPUTS: None (writes to csv file)
+
+DESCRIPTION: This function gets the html table to scrape
+'''
+def get_table_gg(num):  
+    url = "https://en.wikipedia.org/wiki/Golden_Globe_Award_for_Best_Actor_%E2%80%93_Motion_Picture_Musical_or_Comedy"
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    table = soup.find_all('table')[num]
+    return table
+
+
+'''
+FUNCTION: create_csv_of_gg()
+
+INPUTS: outdir: directory to write csv files to
+
+OUTPUTS: None (writes to csv file)
+
+DESCRIPTION: This function parses through the table of the Best Actor Golden
+    Globe award winners and nominees and writes the table to a csv file.
+'''
+def create_csv_of_gg(outdir):
+    for num in range(1,8):
+        table = get_table_gg(num)
+
+        year = ""
+        actor = ''
+        movie = ''
+        done = False
+        for row in table.find_all('tr'):
+            td_tags = row.find_all('td')
+            th_tags = row.find_all('th')
+
+            count = 0
+            for td in td_tags:
+                if len(td_tags) == 4:
+                    winner = True
+                    if count == 0:
+                        year = td.text
+                        #print("YEAR: ", year)
+
+                    if count == 1:
+                        actor = td.text
+                        #print("ACTOR: ", actor)
+
+                    if count == 3:
+                        movie = td.text.strip('\n')
+                        #print("MOVIE: ", movie)
+                        done = True
+
+                    count = count + 1
+
+
+                elif len(td_tags) == 3:
+                    winner = False
+                    count = count + 1
+
+                    if count == 1:
+                        #print("YEAR: ", year)
+
+                        actor = td.text
+                        #print("ACTOR: ", actor)
+
+                    if count == 3:
+                        movie = td.text.strip('\n')
+                        #print("MOVIE: ", movie)
+                        done = True
+
+            if done == True:
+                lst = [year, actor, movie, winner]
+                with open(outdir + "/golden_globes.csv",'a+', newline='') as outF:
+                    writer = csv.writer(outF, dialect='excel')
+                    writer.writerow(lst)
+                   
+             
+'''
+FUNCTION: get_ethnicities_gg(outdir)
+
+INPUTS: outdir: directory to write csv files to
+
+OUTPUTS: None (writes to csv file)
+
+DESCRIPTION: This function addss ethnicities to Golden Globe winners and nominees
+'''
+def get_ethnicities_gg(outdir):
+    table = pd.read_csv(outdir + "/golden_globes.csv", header = None)
+    table.columns = ["year", "actor", "movie", "winner"]
+
+    actors = table["actor"]
+    actors = actors.values
+    actors_cleaned = [x.replace(" ", "-") for x in actors]
     
+    ethnicity = []
+    for actor in tqdm(actors_cleaned):
+        url = 'https://ethnicelebs.com/{}'.format(actor)
+        page = requests.get(url)
+        soup = BeautifulSoup(page.content, 'html.parser')
+
+        found = False
+        lst = []
+        for p in soup.findAll('p'):
+            if "Ethnicity:" in p.text:
+                lst = p.text.split(" ")[1:]
+
+                lst = [re.sub(r'\W+', '', x) for x in lst]
+
+                lst = [x.replace("mother", "") for x in lst]
+                lst = [x.replace("father", "") for x in lst]
+
+                lst = [x for x in lst if x != ""]
+                lst = [x for x in lst if ord(x[0]) > 64]
+                lst = [x for x in lst if ord(x[0]) < 91]
+                ethnicity.append(lst)
+                found = True
+                break   
+        if found == False:
+            ethnicity.append(lst)
+    
+    table["ethnicity"] = ethnicity
+    
+    table.to_csv(outdir + '/goldenGlobesWithEthnicity.csv', index = False)                
+ 
+
 '''
 FUNCTION: test_ingestion(websites, outdir)
 
@@ -590,13 +719,13 @@ def test_ingestion(websites, outdir):
     if outdir and not os.path.exists(outdir[0]):
         os.makedirs(outdir[0])
         
-    #gather all winners and nominees from each year
+    #gather all winners and nominees from each year at the Oscars
     create_csv_of_actors(websites[0], outdir[0])
     
     #keep only years 1934- 2008
     clean_actorsTemp("testData/actorsTemp.csv", outdir[0])
   
-    #add ethnicity to file with all winners and nominees from each year 
+    #add ethnicity to file with all winners and nominees from each year at the Oscars
     add_ethnicity_to_nominees_and_winners(outdir[0])
   
     #gather all movies made every year since 1934 and actors/actresses in them
@@ -610,3 +739,9 @@ def test_ingestion(websites, outdir):
     
     #gather the genre of every movie made every year 
     all_movies_per_year_with_genre(outdir[0])
+
+    #gather all winners and nominees from each year at the Golden Globes
+    create_csv_of_gg(outdir[0])
+    
+    #add ethnicity to file with all winners and nominees from each year at the Golden Globes
+    get_ethnicities_gg(outdir[0])
