@@ -9,7 +9,7 @@ import shutil
 #import functions from files
 sys.path.insert(0, 'src') # add library code to path
 sys.path.insert(0, 'test_src')
-from dataIngestion import *
+from data_ingestion import *
 from train_test import *
 
 
