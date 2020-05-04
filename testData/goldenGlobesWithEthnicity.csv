@@ -1,0 +1,343 @@
+year,actor,movie,winner,ethnicity
+1950[1][2],Fred Astaire,Three Little Words,True,"['Ashkenazi', 'Jewish', 'Catholic', 'German', 'Alsatian']"
+1951[3][4],Danny Kaye,On the Riviera,True,"['Ashkenazi', 'Jewish']"
+1951[3][4],Gene Kelly,An American in Paris,False,"['Irish25', 'German']"
+1952[5][6],Donald O'Connor,Singin' in the Rain,True,"['Irish', 'English']"
+1953[7][8],David Niven,The Moon Is Blue,True,"['English', 'Scottish', 'French']"
+1954[9][10],James Mason,A Star Is Born,True,['English']
+1955[11][12],Tom Ewell,The Seven Year Itch,True,[]
+1956,Cantinflas,Around the World in 80 Days,True,[]
+1956,Marlon Brando,The Teahouse of the August Moon,False,"['English', 'Irish', 'German', 'Dutch', 'French', 'Huguenot', 'Welsh', 'Scottish']"
+1956,Yul Brynner,The King and I,False,"['Russian25', 'SwissGerman']"
+1956,Glenn Ford,The Teahouse of the August Moon,False,"['English', 'Scottish', 'Irish', 'Dutch']"
+1956,Danny Kaye,The Court Jester,False,"['Ashkenazi', 'Jewish']"
+1957,Frank Sinatra,Pal Joey,True,"['Italian', 'Sicilian']"
+1957,Maurice Chevalier,Love in the Afternoon,False,"['Belgian', 'Walloon', 'Belgian', 'Flemish']"
+1957,Glenn Ford,Don't Go Near the Water,False,"['English', 'Scottish', 'Irish', 'Dutch']"
+1957,David Niven,My Man Godfrey,False,"['English', 'Scottish', 'French']"
+1957,Tony Randall,Will Success Spoil Rock Hunter?,False,[]
+1958,Danny Kaye,Me and the Colonel,True,"['Ashkenazi', 'Jewish']"
+1958,Maurice Chevalier,Gigi,False,"['Belgian', 'Walloon', 'Belgian', 'Flemish']"
+1958,Clark Gable,Teacher's Pet,False,"['German', 'Irish', 'SwissGerman', 'Belgian']"
+1958,Cary Grant,Indiscreet,False,"['English', 'Welsh', 'Scottish']"
+1958,Louis Jourdan,Gigi,False,['French']
+1959,Jack Lemmon,Some Like It Hot,True,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1959,Clark Gable,But Not for Me,False,"['German', 'Irish', 'SwissGerman', 'Belgian']"
+1959,Cary Grant,Operation Petticoat,False,"['English', 'Welsh', 'Scottish']"
+1959,Dean Martin,Who Was That Lady?,False,"['Italian', 'Sicilian']"
+1959,Sidney Poitier,Porgy and Bess,False,['AfricanBahamian']
+1960,Jack Lemmon,The Apartment,True,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1960,Dirk Bogarde,Song Without End,False,[]
+1960,Cantinflas,Pepe,False,[]
+1960,Cary Grant,The Grass Is Greener,False,"['English', 'Welsh', 'Scottish']"
+1960,Bob Hope,The Facts of Life,False,"['English', 'Welsh']"
+1961,Glenn Ford,Pocketful of Miracles,True,"['English', 'Scottish', 'Irish', 'Dutch']"
+1961,Fred Astaire,The Pleasure of His Company,False,"['Ashkenazi', 'Jewish', 'Catholic', 'German', 'Alsatian']"
+1961,Richard Beymer,West Side Story,False,[]
+1961,Bob Hope,Bachelor in Paradise,False,"['English', 'Welsh']"
+1961,Fred MacMurray,The Absent-Minded Professor,False,['German']
+1962,Marcello Mastroianni,Divorce Italian Style,True,['Italian']
+1962,Stephen Boyd,Billy Rose's Jumbo,False,[]
+1962,Stephen Boyd,Billy Rose's Jumbo,False,[]
+1962,Cary Grant,That Touch of Mink,False,"['English', 'Welsh', 'Scottish']"
+1962,Charlton Heston,The Pigeon That Took Rome,False,"['English', 'Scottish', 'Cornish', 'German']"
+1962,Karl Malden,Gypsy,False,['Czech']
+1962,Robert Preston,The Music Man,False,[]
+1962,James Stewart,Mr. Hobbs Takes a Vacation,False,"['ScotsIrishNorthern', 'Irish', 'Scottish', 'Irish', 'English']"
+1963,Alberto Sordi,To Bed or Not to Bed,True,[]
+1963,Albert Finney,Tom Jones,False,[]
+1963,James Garner,The Wheeler Dealers,False,"['English', 'Irish', 'German', 'Welsh', 'SwissGerman']"
+1963,Cary Grant,Charade,False,"['English', 'Welsh', 'Scottish']"
+1963,Jack Lemmon,Irma la Douce,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1963,Jack Lemmon,Irma la Douce,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1963,Frank Sinatra,Come Blow Your Horn,False,"['Italian', 'Sicilian']"
+1963,Jonathan Winters,"It's a Mad, Mad, Mad, Mad World",False,[]
+1964,Rex Harrison,My Fair Lady,True,"['English', 'Scottish']"
+1964,Marcello Mastroianni,Marriage Italian-Style,False,['Italian']
+1964,Peter Sellers,The Pink Panther,False,"['Sephardi', 'Jewish', 'Ashkenazi', 'Jewish']"
+1964,Peter Ustinov,Topkapi,False,"['Russian125', 'Ashkenazi', 'Jewish125', 'German125', 'Italian625', 'Ethiopian', 'SubSaharan', 'African', 'Portuguese625', 'French']"
+1964,Dick Van Dyke,Mary Poppins,False,"['English', 'Scottish', 'German', 'SwissGerman', 'Dutch']"
+1965,Lee Marvin,Cat Ballou,True,"['English', 'Irish', 'Scottish']"
+1965,Jack Lemmon,The Great Race,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1965,Jerry Lewis,Boeing Boeing,False,"['Ashkenazi', 'Jewish']"
+1965,Jason Robards,A Thousand Clowns,False,"['Swedish', 'English', 'Welsh', 'German', 'Irish', 'Scottish']"
+1965,Alberto Sordi,Those Magnificent Men in their Flying Machines,False,[]
+1966,Alan Arkin,"The Russians Are Coming, the Russians Are Coming",True,"['Ashkenazi', 'Jewish']"
+1966,Alan Bates,Georgy Girl,False,[]
+1966,Michael Caine,Gambit,False,"['English', 'Irish']"
+1966,Lionel Jeffries,The Spy with a Cold Nose,False,[]
+1966,Walter Matthau,The Fortune Cookie,False,"['Ashkenazi', 'Jewish']"
+1967,Richard Harris,Camelot,True,"['Irish', 'English']"
+1967,Richard Burton,The Taming of the Shrew,False,['Welsh']
+1967,Rex Harrison,Doctor Dolittle,False,"['English', 'Scottish']"
+1967,Dustin Hoffman,The Graduate,False,"['Ashkenazi', 'Jewish']"
+1967,Ugo Tognazzi,L'immorale,False,[]
+1968,Ron Moody,Oliver!,True,[]
+1968,Fred Astaire,Finian's Rainbow,False,"['Ashkenazi', 'Jewish', 'Catholic', 'German', 'Alsatian']"
+1968,Jack Lemmon,The Odd Couple,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1968,Jack Lemmon,The Odd Couple,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1968,Zero Mostel,The Producers,False,"['Ashkenazi', 'Jewish']"
+1969,Peter O'Toole,"Goodbye, Mr. Chips",True,"['Irish', 'Scottish']"
+1969,Dustin Hoffman,John and Mary,False,"['Ashkenazi', 'Jewish']"
+1969,Lee Marvin,Paint Your Wagon,False,"['English', 'Irish', 'Scottish']"
+1969,Steve McQueen,The Reivers,False,"['Scottish', 'English', 'ScotsIrishNorthern', 'Irish', 'German', 'Cornish', 'Dutch', 'Welsh']"
+1969,Anthony Quinn,The Secret of Santa Vittoria,False,"['Irish75', 'Mexican', 'Spanish', 'Indigenous']"
+1970,Albert Finney,Scrooge,True,[]
+1970,Richard Benjamin,Diary of a Mad Housewife,False,[]
+1970,Elliott Gould,M*A*S*H,False,"['Ashkenazi', 'Jewish']"
+1970,Jack Lemmon,The Out-of-Towners,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1970,Donald Sutherland,M*A*S*H,False,"['Scottish', 'English', 'German']"
+1971,Topol,Fiddler on the Roof,True,[]
+1971,Bud Cort,Harold and Maude,False,[]
+1971,Dean Jones,The Million Dollar Duck,False,[]
+1971,Walter Matthau,Kotch,False,"['Ashkenazi', 'Jewish']"
+1971,Gene Wilder,Willy Wonka & the Chocolate Factory,False,"['Ashkenazi', 'Jewish']"
+1972,Jack Lemmon,Avanti!,True,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1972,Edward Albert,Butterflies Are Free,False,[]
+1972,Charles Grodin,The Heartbreak Kid,False,"['Ashkenazi', 'Jewish']"
+1972,Walter Matthau,Pete 'n' Tillie,False,"['Ashkenazi', 'Jewish']"
+1972,Peter O'Toole,Man of La Mancha,False,"['Irish', 'Scottish']"
+1973,George Segal,A Touch of Class,True,"['Ashkenazi', 'Jewish']"
+1973,Carl Anderson,Jesus Christ Superstar,False,[]
+1973,Richard Dreyfuss,American Graffiti,False,"['Ashkenazi', 'Jewish']"
+1973,Ted Neeley,Jesus Christ Superstar,False,[]
+1973,Ryan O'Neal,Paper Moon,False,"['Irish', 'English25', 'Ashkenazi', 'Jewish']"
+1974,Art Carney,Harry and Tonto,True,['Irish']
+1974,James Earl Jones,Claudine,False,['AfricanAmerican']
+1974,Jack Lemmon,The Front Page,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1974,Jack Lemmon,The Front Page,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1974,Burt Reynolds,The Longest Yard,False,"['English', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'German', 'Dutch']"
+1975,George Burns,The Sunshine Boys,True,"['Ashkenazi', 'Jewish']"
+1975,George Burns,The Sunshine Boys,True,"['Ashkenazi', 'Jewish']"
+1975,Warren Beatty,Shampoo,False,"['English', 'Scottish', 'Irish', 'French', 'Danish', 'Dutch']"
+1975,James Caan,Funny Lady,False,"['Ashkenazi', 'Jewish']"
+1975,Peter Sellers,The Return of the Pink Panther,False,"['Sephardi', 'Jewish', 'Ashkenazi', 'Jewish']"
+1976,Kris Kristofferson,A Star Is Born,True,"['Swedish', 'English', 'ScotsIrishNorthern', 'Irish', 'German', 'SwissGerman', 'Dutch']"
+1976,Mel Brooks,Silent Movie,False,"['Ashkenazi', 'Jewish']"
+1976,Peter Sellers,The Pink Panther Strikes Again,False,"['Sephardi', 'Jewish', 'Ashkenazi', 'Jewish']"
+1976,Jack Weston,The Ritz,False,[]
+1976,Gene Wilder,Silver Streak,False,"['Ashkenazi', 'Jewish']"
+1977,Richard Dreyfuss,The Goodbye Girl,True,"['Ashkenazi', 'Jewish']"
+1977,Woody Allen,Annie Hall,False,"['Ashkenazi', 'Jewish']"
+1977,Mel Brooks,High Anxiety,False,"['Ashkenazi', 'Jewish']"
+1977,Robert De Niro,"New York, New York",False,"['Italian', 'Irish', 'German', 'Dutch', 'English', 'French', 'Huguenot', 'Scottish', 'ScotsIrishNorthern', 'Irish']"
+1977,John Travolta,Saturday Night Fever,False,"['ItalianSicilian50', 'Irish']"
+1978,Warren Beatty,Heaven Can Wait,True,"['English', 'Scottish', 'Irish', 'French', 'Danish', 'Dutch']"
+1978,Alan Alda,"Same Time, Next Year",False,['Irish']
+1978,Gary Busey,The Buddy Holly Story,False,[]
+1978,Chevy Chase,Foul Play,False,"['English', 'Scottish', 'Irish', 'Danish', 'Dutch', 'German']"
+1978,George C. Scott,Movie Movie,False,"['English', 'German', 'Irish', 'Scottish']"
+1978,John Travolta,Grease,False,"['ItalianSicilian50', 'Irish']"
+1979,Peter Sellers,Being There,True,"['Sephardi', 'Jewish', 'Ashkenazi', 'Jewish']"
+1979,George Hamilton,Love at First Bite,False,[]
+1979,Dudley Moore,10,False,"['English', 'Welsh']"
+1979,Burt Reynolds,Starting Over,False,"['English', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'German', 'Dutch']"
+1979,Roy Scheider,All That Jazz,False,"['German', 'Irish']"
+1980,Ray Sharkey,The Idolmaker,True,[]
+1980,Neil Diamond,The Jazz Singer,False,"['Ashkenazi', 'Jewish']"
+1980,Tommy Lee Jones,Coal Miner's Daughter,False,"['English', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Dutch']"
+1980,Paul Le Mat,Melvin and Howard,False,[]
+1980,Walter Matthau,Hopscotch,False,"['Ashkenazi', 'Jewish']"
+1981,Dudley Moore,Arthur,True,"['English', 'Welsh']"
+1981,Alan Alda,The Four Seasons,False,['Irish']
+1981,George Hamilton,"Zorro, The Gay Blade",False,[]
+1981,Steve Martin,Pennies from Heaven,False,"['English', 'Scottish', 'Irish', 'ScotsIrishNorthern', 'Irish', 'German', 'French', 'Welsh']"
+1981,Walter Matthau,First Monday in October,False,"['Ashkenazi', 'Jewish']"
+1982,Dustin Hoffman,Tootsie,True,"['Ashkenazi', 'Jewish']"
+1982,Peter O'Toole,My Favorite Year,False,"['Irish', 'Scottish']"
+1982,Al Pacino,Author! Author!,False,"['Italian', 'Sicilian', 'Neapolitan']"
+1982,Robert Preston,Victor Victoria,False,[]
+1982,Henry Winkler,Night Shift,False,"['Ashkenazi', 'Jewish']"
+1983,Michael Caine,Educating Rita,True,"['English', 'Irish']"
+1983,Woody Allen,Zelig,False,"['Ashkenazi', 'Jewish']"
+1983,Tom Cruise,Risky Business,False,"['German4375', 'Irish125', 'English', 'Welsh']"
+1983,Eddie Murphy,Trading Places,False,['AfricanAmerican']
+1983,Mandy Patinkin,Yentl,False,"['Ashkenazi', 'Jewish']"
+1984,Dudley Moore,Micki & Maude,True,"['English', 'Welsh']"
+1984,Steve Martin,All of Me,False,"['English', 'Scottish', 'Irish', 'ScotsIrishNorthern', 'Irish', 'German', 'French', 'Welsh']"
+1984,Eddie Murphy,Beverly Hills Cop,False,['AfricanAmerican']
+1984,Bill Murray,Ghostbusters,False,['Irish']
+1984,Robin Williams,Moscow on the Hudson,False,"['English', 'Welsh', 'Irish', 'Scottish', 'German', 'French']"
+1985,Jack Nicholson,Prizzi's Honor,True,"['Irish', 'Scottish', 'English', 'Pennsylvania', 'DutchGerman', 'Welshbiological', 'Italian', 'Latvian', 'Ashkenazi', 'Jewish', 'Baltic', 'German']"
+1985,Jeff Daniels,The Purple Rose of Cairo,False,"['English', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'German']"
+1985,Griffin Dunne,After Hours,False,"['Irish', 'Irish', 'English', 'German', 'Mexican', 'Swedish']"
+1985,Michael J. Fox,Back to the Future,False,"['Irish', 'English', 'Scottish']"
+1985,James Garner,Murphy's Romance,False,"['English', 'Irish', 'German', 'Welsh', 'SwissGerman']"
+1986,Paul Hogan,Crocodile Dundee,True,[]
+1986,Matthew Broderick,Ferris Bueller's Day Off,False,"['English', 'Ashkenazi', 'Jewish']"
+1986,Jeff Daniels,Something Wild,False,"['English', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'German']"
+1986,Danny DeVito,Ruthless People,False,['Italian']
+1986,Jack Lemmon,That's Life!,False,"['English', 'Irish', 'Scottish', 'French', 'Dutch', 'Welsh']"
+1987,Robin Williams,"Good Morning, Vietnam",True,"['English', 'Welsh', 'Irish', 'Scottish', 'German', 'French']"
+1987,Nicolas Cage,Moonstruck,False,"['Italian25', 'Polish1875', 'German625', 'British', 'Isles', 'English', 'Scottish']"
+1987,Danny DeVito,Throw Momma from the Train,False,['Italian']
+1987,William Hurt,Broadcast News,False,"['English', 'German', 'Scottish', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Swedish']"
+1987,Steve Martin,Roxanne,False,"['English', 'Scottish', 'Irish', 'ScotsIrishNorthern', 'Irish', 'German', 'French', 'Welsh']"
+1987,Patrick Swayze,Dirty Dancing,False,"['English', 'Irish', 'Scottish', 'Dutch']"
+1988,Tom Hanks,Big,True,"['English', 'Cornish', 'German', 'Scottish', 'Welsh', 'Portuguese']"
+1988,Michael Caine,Dirty Rotten Scoundrels,False,"['English', 'Irish']"
+1988,John Cleese,A Fish Called Wanda,False,['English']
+1988,Robert De Niro,Midnight Run,False,"['Italian', 'Irish', 'German', 'Dutch', 'English', 'French', 'Huguenot', 'Scottish', 'ScotsIrishNorthern', 'Irish']"
+1988,Bob Hoskins,Who Framed Roger Rabbit,False,"['English', 'Romani']"
+1989,Morgan Freeman,Driving Miss Daisy,True,"['AfricanAmerican', 'English']"
+1989,Billy Crystal,When Harry Met Sally...,False,"['Ashkenazi', 'Jewish']"
+1989,Michael Douglas,The War of the Roses,False,"['Ashkenazi', 'Jewish', 'English', 'Irish', 'Welsh', 'Dutch', 'Scottish', 'Belgian', 'French']"
+1989,Steve Martin,Parenthood,False,"['English', 'Scottish', 'Irish', 'ScotsIrishNorthern', 'Irish', 'German', 'French', 'Welsh']"
+1989,Jack Nicholson,Batman,False,"['Irish', 'Scottish', 'English', 'Pennsylvania', 'DutchGerman', 'Welshbiological', 'Italian', 'Latvian', 'Ashkenazi', 'Jewish', 'Baltic', 'German']"
+1990,Gérard Depardieu,Green Card,True,[]
+1990,Macaulay Culkin,Home Alone,False,"['German', 'English', 'SwissGerman25', 'Norwegian125', 'Irish625', 'SwissFrench']"
+1990,Johnny Depp,Edward Scissorhands,False,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+1990,Richard Gere,Pretty Woman,False,"['English', 'ScotsIrishNorthern', 'Irish', 'Welsh', 'Dutch', 'Scottish', 'German', 'French']"
+1990,Patrick Swayze,Ghost,False,"['English', 'Irish', 'Scottish', 'Dutch']"
+1991,Robin Williams,The Fisher King,True,"['English', 'Welsh', 'Irish', 'Scottish', 'German', 'French']"
+1991,Jeff Bridges,The Fisher King,False,"['English', 'ScotsIrishNorthern', 'Irish', 'Irish', 'SwissGerman', 'German']"
+1991,Billy Crystal,City Slickers,False,"['Ashkenazi', 'Jewish']"
+1991,Dustin Hoffman,Hook,False,"['Ashkenazi', 'Jewish']"
+1991,Kevin Kline,Soapdish,False,"['Jewish', 'Irish']"
+1992,Tim Robbins,The Player,True,"['English', 'Norwegian', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'German', 'FrenchFrenchCanadian', 'Dutch']"
+1992,Nicolas Cage,Honeymoon in Vegas,False,"['Italian25', 'Polish1875', 'German625', 'British', 'Isles', 'English', 'Scottish']"
+1992,Billy Crystal,Mr. Saturday Night,False,"['Ashkenazi', 'Jewish']"
+1992,Marcello Mastroianni,Used People,False,['Italian']
+1992,Tim Robbins,Bob Roberts,False,"['English', 'Norwegian', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'German', 'FrenchFrenchCanadian', 'Dutch']"
+1993,Robin Williams,Mrs. Doubtfire,True,"['English', 'Welsh', 'Irish', 'Scottish', 'German', 'French']"
+1993,Johnny Depp,Benny & Joon,False,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+1993,Tom Hanks,Sleepless in Seattle,False,"['English', 'Cornish', 'German', 'Scottish', 'Welsh', 'Portuguese']"
+1993,Kevin Kline,Dave,False,"['Jewish', 'Irish']"
+1993,Colm Meaney,The Snapper,False,['Irish']
+1994,Hugh Grant,Four Weddings and a Funeral,True,"['Scottish', 'English', 'Irish', 'Welsh', 'Cornish', 'Dutch', 'AfrikanerFrenchBelgian', 'Walloon']"
+1994,Jim Carrey,The Mask,False,"['FrenchCanadian', 'English', 'Scottish', 'Irish']"
+1994,Johnny Depp,Ed Wood,False,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+1994,Arnold Schwarzenegger,Junior,False,['Austrian']
+1994,Terence Stamp,"The Adventures of Priscilla, Queen of the Desert",False,"['English', 'French', 'German']"
+1995,John Travolta,Get Shorty,True,"['ItalianSicilian50', 'Irish']"
+1995,Michael Douglas,The American President,False,"['Ashkenazi', 'Jewish', 'English', 'Irish', 'Welsh', 'Dutch', 'Scottish', 'Belgian', 'French']"
+1995,Harrison Ford,Sabrina,False,"['Irish', 'German', 'Ashkenazi', 'Jewish']"
+1995,Steve Martin,Father of the Bride Part II,False,"['English', 'Scottish', 'Irish', 'ScotsIrishNorthern', 'Irish', 'German', 'French', 'Welsh']"
+1995,Patrick Swayze,"To Wong Foo, Thanks for Everything! Julie Newmar",False,"['English', 'Irish', 'Scottish', 'Dutch']"
+1996,Tom Cruise,Jerry Maguire,True,"['German4375', 'Irish125', 'English', 'Welsh']"
+1996,Antonio Banderas,Evita,False,['Spanish']
+1996,Kevin Costner,Tin Cup,False,"['English', 'German', 'SwissGerman', 'Scottish', 'Welsh', 'Irish', 'ScotsIrishNorthern', 'Irish']"
+1996,Nathan Lane,The Birdcage,False,['Irish']
+1996,Eddie Murphy,The Nutty Professor,False,['AfricanAmerican']
+1997,Jack Nicholson,As Good as It Gets,True,"['Irish', 'Scottish', 'English', 'Pennsylvania', 'DutchGerman', 'Welshbiological', 'Italian', 'Latvian', 'Ashkenazi', 'Jewish', 'Baltic', 'German']"
+1997,Jim Carrey,Liar Liar,False,"['FrenchCanadian', 'English', 'Scottish', 'Irish']"
+1997,Dustin Hoffman,Wag the Dog,False,"['Ashkenazi', 'Jewish']"
+1997,Samuel L. Jackson,Jackie Brown,False,"['AfricanAmerican', 'English']"
+1997,Kevin Kline,In & Out,False,"['Jewish', 'Irish']"
+1998,Michael Caine,Little Voice,True,"['English', 'Irish']"
+1998,Antonio Banderas,The Mask of Zorro,False,['Spanish']
+1998,Warren Beatty,Bulworth,False,"['English', 'Scottish', 'Irish', 'French', 'Danish', 'Dutch']"
+1998,John Travolta,Primary Colors,False,"['ItalianSicilian50', 'Irish']"
+1998,Robin Williams,Patch Adams,False,"['English', 'Welsh', 'Irish', 'Scottish', 'German', 'French']"
+1999,Jim Carrey,Man on the Moon,True,"['FrenchCanadian', 'English', 'Scottish', 'Irish']"
+1999,Robert De Niro,Analyze This,False,"['Italian', 'Irish', 'German', 'Dutch', 'English', 'French', 'Huguenot', 'Scottish', 'ScotsIrishNorthern', 'Irish']"
+1999,Rupert Everett,An Ideal Husband,False,"['Scottish', 'Irish', 'English', 'Cornish', 'German', 'Dutch']"
+1999,Hugh Grant,Notting Hill,False,"['Scottish', 'English', 'Irish', 'Welsh', 'Cornish', 'Dutch', 'AfrikanerFrenchBelgian', 'Walloon']"
+1999,Sean Penn,Sweet and Lowdown,False,"['Jewish', 'Italian', 'Irish']"
+2000,George Clooney,"O Brother, Where Art Thou?",True,"['Irish', 'English', 'German', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'Huguenot', 'Dutch']"
+2000,Jim Carrey,How the Grinch Stole Christmas,False,"['FrenchCanadian', 'English', 'Scottish', 'Irish']"
+2000,John Cusack,High Fidelity,False,['Irish']
+2000,Robert De Niro,Meet the Parents,False,"['Italian', 'Irish', 'German', 'Dutch', 'English', 'French', 'Huguenot', 'Scottish', 'ScotsIrishNorthern', 'Irish']"
+2000,Mel Gibson,What Women Want,False,"['Irish125', 'English', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh']"
+2001,Gene Hackman,The Royal Tenenbaums,True,"['English', 'German', 'Scottish', 'Dutch']"
+2001,Hugh Jackman,Kate & Leopold,False,"['English25', 'Scottish125', 'Greek']"
+2001,Ewan McGregor,Moulin Rouge!,False,"['Scottish', 'German']"
+2001,John Cameron Mitchell,Hedwig and the Angry Inch,False,[]
+2001,Billy Bob Thornton,Bandits,False,"['English', 'Scottish', 'Irish']"
+2002,Richard Gere,Chicago,True,"['English', 'ScotsIrishNorthern', 'Irish', 'Welsh', 'Dutch', 'Scottish', 'German', 'French']"
+2002,Nicolas Cage,Adaptation.,False,"['Italian25', 'Polish1875', 'German625', 'British', 'Isles', 'English', 'Scottish']"
+2002,Kieran Culkin,Igby Goes Down,False,"['German', 'English', 'SwissGerman25', 'Norwegian125', 'Irish625', 'SwissFrench']"
+2002,Hugh Grant,About a Boy,False,"['Scottish', 'English', 'Irish', 'Welsh', 'Cornish', 'Dutch', 'AfrikanerFrenchBelgian', 'Walloon']"
+2002,Adam Sandler,Punch-Drunk Love,False,"['Ashkenazi', 'Jewish']"
+2003,Bill Murray,Lost in Translation,True,['Irish']
+2003,Jack Black,School of Rock,False,"['German', 'Northern', 'Irish', 'Scottish', 'English', 'French', 'Welsh', 'Judaism', 'Ashkenazi', 'Jewish']"
+2003,Johnny Depp,Pirates of the Caribbean: The Curse of the Black Pearl,False,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+2003,Jack Nicholson,Something's Gotta Give,False,"['Irish', 'Scottish', 'English', 'Pennsylvania', 'DutchGerman', 'Welshbiological', 'Italian', 'Latvian', 'Ashkenazi', 'Jewish', 'Baltic', 'German']"
+2003,Billy Bob Thornton,Bad Santa,False,"['English', 'Scottish', 'Irish']"
+2004,Jamie Foxx,Ray,True,['AfricanAmerican']
+2004,Jim Carrey,Eternal Sunshine of the Spotless Mind,False,"['FrenchCanadian', 'English', 'Scottish', 'Irish']"
+2004,Paul Giamatti,Sideways,False,"['Italian', 'German', 'English', 'Dutch', 'Irish', 'Scottish', 'French']"
+2004,Kevin Kline,De-Lovely,False,"['Jewish', 'Irish']"
+2004,Kevin Spacey,Beyond the Sea,False,"['Swedish', 'English', 'Welsh']"
+2005,Joaquin Phoenix,Walk the Line,True,"['English', 'Scottish', 'ScotsIrishNorthern', 'Irish', 'German', 'Irish', 'Welsh', 'French', 'Huguenot', 'Ashkenazi', 'Jewish']"
+2005,Pierce Brosnan,The Matador,False,['Irish']
+2005,Jeff Daniels,The Squid and the Whale,False,"['English', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'German']"
+2005,Johnny Depp,Charlie and the Chocolate Factory,False,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+2005,Nathan Lane,The Producers,False,['Irish']
+2005,Cillian Murphy,Breakfast on Pluto,False,['Irish']
+2006,Sacha Baron Cohen,Borat,True,"['Ashkenazi', 'Jewish']"
+2006,Johnny Depp,Pirates of the Caribbean: Dead Man's Chest,False,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+2006,Aaron Eckhart,Thank You for Smoking,False,"['German', 'German', 'English', 'Scottish', 'Northern', 'Irish']"
+2006,Chiwetel Ejiofor,Kinky Boots,False,"['Igbo', 'Nigerian']"
+2006,Will Ferrell,Stranger than Fiction,False,"['English', 'Irish', 'German', 'Welsh']"
+2007,Johnny Depp,Sweeney Todd: The Demon Barber of Fleet Street,True,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+2007,Ryan Gosling,Lars and the Real Girl,False,"['FrenchCanadian', 'English', 'Scottish', 'Irish', 'German', 'AfricanAmerican']"
+2007,Tom Hanks,Charlie Wilson's War,False,"['English', 'Cornish', 'German', 'Scottish', 'Welsh', 'Portuguese']"
+2007,Philip Seymour Hoffman,The Savages,False,"['Irish', 'English', 'German', 'Dutch', 'Polish']"
+2007,John C. Reilly,Walk Hard: The Dewey Cox Story,False,"['Lithuanian375', 'Irish625', 'German3125', 'FrenchCanadian3125', 'Scottish']"
+2008,Colin Farrell,In Bruges,True,['Irish']
+2008,Javier Bardem,Vicky Cristina Barcelona,False,"['Spanish', 'Castilian', 'Leónese', 'Basque', 'Catalan', 'British', 'Isles', 'Irish', 'English']"
+2008,James Franco,Pineapple Express,False,"['Swedish', 'Ashkenazi', 'Jewish']"
+2008,Brendan Gleeson,In Bruges,False,['Irish']
+2008,Dustin Hoffman,Last Chance Harvey,False,"['Ashkenazi', 'Jewish']"
+2009,Robert Downey Jr.,Sherlock Holmes,True,"['Ashkenazi', 'Jewish', 'English', 'Scottish', 'German', 'SwissGerman', 'Irish']"
+2009,Matt Damon,The Informant!,False,"['Scottish', 'Welsh', 'Finnish', 'Swedish', 'Norwegian']"
+2009,Daniel Day-Lewis,Nine,False,"['English', 'Northern', 'Irish', 'Welsh', 'Ashkenazi', 'Jewish']"
+2009,Joseph Gordon-Levitt,(500) Days of Summer,False,"['Ashkenazi', 'Jewish']"
+2009,Michael Stuhlbarg,A Serious Man,False,"['Ashkenazi', 'Jewish']"
+2010,Paul Giamatti,Barney's Version,True,"['Italian', 'German', 'English', 'Dutch', 'Irish', 'Scottish', 'French']"
+2010,Johnny Depp,Alice in Wonderland,False,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+2010,Johnny Depp,Alice in Wonderland,False,"['English', 'Irish', 'ScotsIrishNorthern', 'Irish', 'Scottish', 'Welsh', 'French', 'FrenchCanadian', 'Dutch', 'Flemish', 'Belgian', 'German', 'African']"
+2010,Jake Gyllenhaal,Love & Other Drugs,False,"['Swedish', 'English', 'SwissGerman', 'German', 'Scottish', 'Welsh', 'French', 'Ashkenazi', 'Jewish']"
+2010,Kevin Spacey,Casino Jack,False,"['Swedish', 'English', 'Welsh']"
+2011,Jean Dujardin,The Artist,True,['French']
+2011,Brendan Gleeson,The Guard,False,['Irish']
+2011,Joseph Gordon-Levitt,50/50,False,"['Ashkenazi', 'Jewish']"
+2011,Ryan Gosling,"Crazy, Stupid, Love.",False,"['FrenchCanadian', 'English', 'Scottish', 'Irish', 'German', 'AfricanAmerican']"
+2011,Owen Wilson,Midnight in Paris,False,['Irish']
+2012,Hugh Jackman,Les Misérables,True,"['English25', 'Scottish125', 'Greek']"
+2012,Jack Black,Bernie,False,"['German', 'Northern', 'Irish', 'Scottish', 'English', 'French', 'Welsh', 'Judaism', 'Ashkenazi', 'Jewish']"
+2012,Bradley Cooper,Silver Linings Playbook,False,['Italian']
+2012,Ewan McGregor,Salmon Fishing in the Yemen,False,"['Scottish', 'German']"
+2012,Bill Murray,Hyde Park on Hudson,False,['Irish']
+2013,Leonardo DiCaprio,The Wolf of Wall Street,True,"['German', 'German', 'Russian']"
+2013,Christian Bale,American Hustle,False,"['English', 'Channel', 'Islander', 'Guernsey', 'German']"
+2013,Bruce Dern,Nebraska,False,"['German', 'English', 'Scottish', 'ScotsIrishNorthern', 'Irish', 'Dutch', 'Welsh']"
+2013,Oscar Isaac,Inside Llewyn Davis,False,"['Cuban', 'Guatemalan', 'French', 'Spanish']"
+2013,Joaquin Phoenix,Her,False,"['English', 'Scottish', 'ScotsIrishNorthern', 'Irish', 'German', 'Irish', 'Welsh', 'French', 'Huguenot', 'Ashkenazi', 'Jewish']"
+2014,Michael Keaton,Birdman,True,"['English', 'Scottish', 'ScotsIrishNorthern', 'Irish', 'Irish']"
+2014,Ralph Fiennes,The Grand Budapest Hotel,False,"['English', 'Northern', 'Irish', 'Irish', 'Scottish']"
+2014,Bill Murray,St. Vincent,False,['Irish']
+2014,Joaquin Phoenix,Inherent Vice,False,"['English', 'Scottish', 'ScotsIrishNorthern', 'Irish', 'German', 'Irish', 'Welsh', 'French', 'Huguenot', 'Ashkenazi', 'Jewish']"
+2014,Christoph Waltz,Big Eyes,False,"['German', 'Austrian', 'Slovenian']"
+"2015[13]
+",Matt Damon,The Martian,True,"['Scottish', 'Welsh', 'Finnish', 'Swedish', 'Norwegian']"
+"2015[13]
+",Christian Bale,The Big Short,False,"['English', 'Channel', 'Islander', 'Guernsey', 'German']"
+"2015[13]
+",Christian Bale,The Big Short,False,"['English', 'Channel', 'Islander', 'Guernsey', 'German']"
+"2015[13]
+",Al Pacino,Danny Collins,False,"['Italian', 'Sicilian', 'Neapolitan']"
+"2015[13]
+",Mark Ruffalo,Infinitely Polar Bear,False,"['Italian25', 'FrenchFrenchCanadian']"
+2016,Ryan Gosling,La La Land,True,"['FrenchCanadian', 'English', 'Scottish', 'Irish', 'German', 'AfricanAmerican']"
+2016,Colin Farrell,The Lobster,False,['Irish']
+2016,Hugh Grant,Florence Foster Jenkins,False,"['Scottish', 'English', 'Irish', 'Welsh', 'Cornish', 'Dutch', 'AfrikanerFrenchBelgian', 'Walloon']"
+2016,Jonah Hill,War Dogs,False,"['Ashkenazi', 'Jewish']"
+2016,Ryan Reynolds,Deadpool,False,"['Irish', 'Scottish', 'Northern', 'Irish', 'Luxembourgish', 'English', 'Dutch']"
+2017,"James Franco
+",The Disaster Artist,True,[]
+2017,Steve Carell,Battle of the Sexes,False,"['German', 'Polish']"
+2017,Ansel Elgort,Baby Driver,False,"['Eastern', 'European', 'Ashkenazi', 'Jewish', 'Norwegian', 'English', 'ScotsIrishNorthern', 'Irish', 'German']"
+2017,Hugh Jackman,The Greatest Showman,False,"['English25', 'Scottish125', 'Greek']"
+2017,Daniel Kaluuya,Get Out,False,['Ugandan']
+2018,Christian Bale,Vice,True,"['English', 'Channel', 'Islander', 'Guernsey', 'German']"
+2018,Lin-Manuel Miranda,Mary Poppins Returns,False,"['Puerto', 'Rican', 'Spanish', 'Taíno', 'African', 'Mexican', 'AfricanAmerican', 'English']"
+2018,Viggo Mortensen,Green Book,False,"['English', 'Scottish']"
+2018,Robert Redford,The Old Man & the Gun,False,"['English', 'Irish', 'Scottish', 'Northern', 'IrishScotsIrish', 'Cornish']"
+2018,John C. Reilly,Stan & Ollie,False,"['Lithuanian375', 'Irish625', 'German3125', 'FrenchCanadian3125', 'Scottish']"
+2019,Taron Egerton,Rocketman,True,"['English', 'Welsh', 'Irish']"
+2019,Daniel Craig,Knives Out,False,"['English', 'Welsh', 'Scottish', 'Irish', 'FrenchFrench', 'Huguenot']"
+2019,Roman Griffin Davis,Jojo Rabbit,False,"['English', 'Irish', 'French']"
+2019,Leonardo DiCaprio,Once Upon a Time in Hollywood,False,"['German', 'German', 'Russian']"
+2019,Eddie Murphy,Dolemite Is My Name,False,['AfricanAmerican']
