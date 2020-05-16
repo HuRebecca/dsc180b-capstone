@@ -354,7 +354,7 @@ OUTPUTS: None (writes to csv file)
 DESCRIPTION: This function calls on other functions to create the csv
     files for the all the movies made each year between 1934 and 2019
 '''
-def all_movies_per_year(outdir):
+def all_movies_per_year(outdir, flag):
     #path to write outpit files to
     path = outdir + 'ListOfMovPerYear'
     
@@ -362,16 +362,21 @@ def all_movies_per_year(outdir):
     if path and not os.path.exists(path):
         os.makedirs(path)
         
-    #gather info per year from 1934-1935
-    for year in range(1934, 1993):
-        create_csv_per_year(1,year, outdir)
+    if flag == "full": 
+        #gather info per year from 1934-1935
+        for year in range(1934, 1993):
+            create_csv_per_year(1,year, outdir)
 
-    for year in range(1993, 2004):
-        create_csv_per_year(2,year, outdir)
-        
-    for year in range(2004, 2009):
-        create_csv_per_year(2,year, outdir)
-        
+        for year in range(1993, 2004):
+            create_csv_per_year(2,year, outdir)
+
+        for year in range(2004, 2009):
+            create_csv_per_year(2,year, outdir)
+            
+    elif flag == "test" :
+        #gather info per year from 1934-1935
+        for year in range(1934, 1936):
+            create_csv_per_year(1, year, outdir)
 
 '''
 FUNCTION: all_movies_per_year_with_genre(outdir)
@@ -391,15 +396,21 @@ def all_movies_per_year_with_genre(outdir):
     if path and not os.path.exists(path):
         os.makedirs(path)
     
-    #gather info per year from 1934-1935
-    for year in range(1934, 1993):
-        create_csv_per_year_with_genre(1,year, outdir)
-        
-    for year in range(1993, 2004):
-        create_csv_per_year_with_genre(2,year, outdir)
-        
-    for year in range(2004, 2009):
-        create_csv_per_year_with_genre(2,year, outdir)
+    if flag == "full":
+        #gather info per year from 1934-1935
+        for year in range(1934, 1993):
+            create_csv_per_year_with_genre(1,year, outdir)
+
+        for year in range(1993, 2004):
+            create_csv_per_year_with_genre(2,year, outdir)
+
+        for year in range(2004, 2009):
+            create_csv_per_year_with_genre(2,year, outdir)
+            
+    elif flag == "test":
+        #gather info per year from 1934-1935
+        for year in range(1934, 1936):
+            create_csv_per_year_with_genre(1, year, outdir)
         
 
 '''
@@ -725,11 +736,11 @@ OUTPUTS: None (writes everything to csv files in directories)
 DESCRIPTION: This function calls the necessary functions to scrape all 
     the data needed 
 ''' 
-def test_ingestion(websites, outdir):
+def collect_data(websites, outdir, flag): 
     #make folder to hold test data
     if outdir and not os.path.exists(outdir[0]):
         os.makedirs(outdir[0])
-        
+    
     #gather all winners and nominees from each year
     create_csv_of_actors(websites[0], outdir[0])
     
@@ -740,7 +751,7 @@ def test_ingestion(websites, outdir):
     add_ethnicity_to_nominees_and_winners(outdir[0])
   
     #gather all movies made every year since 1934 and actors/actresses in them
-    all_movies_per_year(outdir[0])
+    all_movies_per_year(outdir[0], flag)
     
     #identify one male actors from each movie made each year
     only_males(outdir[0])
@@ -749,7 +760,7 @@ def test_ingestion(websites, outdir):
     get_ethnicity_for_all_years(outdir[0])
     
     #gather the genre of every movie made every year 
-    all_movies_per_year_with_genre(outdir[0])
+    all_movies_per_year_with_genre(outdir[0], flag)
 
     #gather all winners and nominees from each year at the Golden Globes
     create_csv_of_gg(outdir[0])
