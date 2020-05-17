@@ -1,4 +1,4 @@
 {
-    "indir" : ["data/ListOfMovPerYearWithGenre", "data/actorsWithEthnicity.csv", "data/goldenGlobesDramaWithEthnicity.csv"],
+    "indir" : ["data/ListOfMovPerYearWithGenre", "data/actorsWithEthnicity.csv", "data/goldenGlobesDramaWithEthnicity.csv", "data/ListOfMovPerYearWithEthnicity"],
     "outdir": ["finalVisuals/"]
 }

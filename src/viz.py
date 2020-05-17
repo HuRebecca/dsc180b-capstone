@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 '''
-FILE: 
+FILE: viz.py
 
-DESCRIPTION: 
+DESCRIPTION: This file creates the 5 visualizations for our project.
 '''
 import pandas as pd
 import os
@@ -16,13 +16,11 @@ warnings.filterwarnings("ignore")
 
 
 '''
-FUNCTION: 
+FUNCTION: num_movies_per_genre(path)
 
 INPUTS: path: path to folder containing each year's movies
 
-OUTPUTS: 
-
-DESCRIPTION: 
+OUTPUTS: dataframe: contains number of movies made per genre
 '''
 def num_movies_per_genre(path):
     year_genres = []
@@ -61,13 +59,14 @@ def num_movies_per_genre(path):
 
 
 '''
-FUNCTION: 
+FUNCTION: plot_time_periods(df, fig_file_name, plot_title, most_pop_genres)
 
-INPUTS: 
+INPUTS: df: dataframe of number of movies per genre
+        fig_file_name: outdir to save image
+        plot_title: title of the graph
+        most_pop_genres: list of most popular genres
 
-OUTPUTS: 
-
-DESCRIPTION: 
+OUTPUTS: Nothing: saves graph as image to outdir
 '''
 def plot_time_periods(df, fig_file_name, plot_title, most_pop_genres):
     bins = np.arange(1930, 2015, step = 5)
@@ -93,14 +92,12 @@ def plot_time_periods(df, fig_file_name, plot_title, most_pop_genres):
 
 
 '''
-FUNCTION: 
+FUNCTION: oscars_genres(oscars_file, path)
 
 INPUTS: oscars_file: csv for oscars nominations/winners
         path: path to folder containing each year's movies
 
-OUTPUTS: 
-
-DESCRIPTION: 
+OUTPUTS: df: dataframe of number of movies per genre
 '''
 def oscars_genres(oscars_file, path):
     genre_list = []
@@ -147,22 +144,13 @@ def oscars_genres(oscars_file, path):
     return df
 
 
-def create_race(ethnicities):
-    '''
-    ethnicities: list of strings
-    '''
-    race_dict = {'Black': ['AfricanAmerican', 'Ugandan'],
-             'Asian': ['Indian', 'Chinese'],
-             'Hispanic/Latino': ['Mexican']
-            }
-    
-    ethnicity_string = ''.join(str(elem) for elem in ethnicities)
-    for k in race_dict.keys():
-        for e in race_dict[k]:
-            if e in ethnicity_string:
-                return k
-    return 'White'
+'''
+FUNCTION: get_race(df)
 
+INPUTS: df: dataframe with ethnicity info
+
+OUTPUTS: df_eth: dataframe with race changed to a group ethnicity
+'''
 def get_race(df):
     df['race'] = df['ethnicity'].apply(create_race)
     onehot = pd.get_dummies(df['race'])
@@ -172,6 +160,14 @@ def get_race(df):
     df_eth['Total'] = df_eth['Non_White'] + df_eth['White']
     return df_eth
 
+
+'''
+FUNCTION: create_time_periods(df)
+
+INPUTS: ethnicities: list of strings
+
+OUTPUTS: grouped_years: dict
+'''
 def create_time_periods(df):
     bins = np.arange(1930, 2015, step = 5)
     df['time'] = pd.cut(df['year'], bins, include_lowest= True)
@@ -186,6 +182,16 @@ def create_time_periods(df):
         grouped_years[race] = grouped_years[race]/grouped_years['Total']
     return grouped_years
 
+
+'''
+FUNCTION: plot_compare(df, cols, outdir)
+
+INPUTS: df: dataframe
+        cols: columns
+        outdir: directory
+
+OUTPUTS: nothing: saves image
+'''
 def plot_compare(df, cols, outdir):
     styles=['b', 'b--', 'y', 'y--']
     labels = ['Oscars Non White Nom', 'GG Non White Nom', 'Oscars Black Nom', 'GG Black Nom']
@@ -198,15 +204,228 @@ def plot_compare(df, cols, outdir):
     fig.show()
     fig.savefig(outdir + 'race_dist_over_time.png')
     
+
+'''
+FUNCTION: create_decade(year)
+
+INPUTS: year: int
+
+OUTPUTS: dict
+'''
+def create_decade(year):
+    v = str(year)[2]
+    return decade_dict[int(v)]
+
+
+'''
+FUNCTION: create_race(ethnicities)
+
+INPUTS: ethnicities: list of strings
+
+OUTPUTS: k: ethnicity that matched race
+'''
+def create_race(ethnicities):
+    race_dict = {'Black': ['AfricanAmerican', 'Ugandan', 'CubanAfricanCuban', 'AfricanTrinidadian', 'Nigerian'],
+             'American Indian': ['Cherokee', 'Native'],
+             'Asian': ['Indian', 'Chinese', 'Korean', 'Japanese', 'Taiwanese', 'Thai', 'Vietnamese'],
+             'Hispanic/Latino': ['Mexican', 'Cuban', 'Venezuelan', 'Spanish', 'CubanAfricanCuban', \
+                                 'Puerto', 'Rican', 'AfricanTrinidadian']
+            }
+    ethnicity_string = ''.join(str(elem) for elem in ethnicities)
+    for k in race_dict.keys():
+        for e in race_dict[k]:
+            if e in ethnicity_string:
+                return k
+    return 'White'
+
+
+'''
+FUNCTION: grab_race_counts(decade, indir)
+
+INPUTS: decade: list of decades
+        indir: path to data
+
+OUTPUTS: all_race_counts: dict
+'''
+def grab_race_counts(decade, indir):
+    all_race_counts = {'White': 0,
+                       'Black': 0,
+                       'American Indian': 0,
+                       'Asian': 0,
+                       'Hispanic/Latino': 0
+                    }
+
+    for year in os.listdir(indir):
+        if year.endswith('.csv') and str(year)[2] == decade:
+            sample = pd.read_csv(indir + "/" + year).dropna()
+        else:
+            continue
+        race_series = sample['Ethnicity'].apply(create_race).value_counts()
+        for k in all_race_counts.keys():
+            if k in list(race_series.index):
+                all_race_counts[k] += race_series[k]
+    return all_race_counts
+
+
+'''
+FUNCTION: make_barchart(outdir)
+
+INPUTS: outdir: path to save image
+
+OUTPUTS: nothing: writes image to file
+'''
+def make_barchart(outdir):
+    #percent stacked bar chart
+    plt.rcParams.update({'font.size': 10})
+    # Data
+    r = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    raw_data = {'whiteNoms': [28, 50, 49, 49, 49, 47, 46, 39, 44],
+                'blackNoms': [0, 0, 0, 0, 1, 1, 4, 9, 6],
+                'asianNoms': [0, 0, 0, 0, 0, 1, 0, 2, 0],
+                'hispanicNoms': [0, 0, 1, 1, 0, 1, 0, 0, 0]
+               }
+    df = pd.DataFrame(raw_data)
+
+    # From raw value to percentage
+    totals = [i+j+k+l for i,j,k,l in zip(df['whiteNoms'], df['blackNoms'], df['asianNoms'], df['hispanicNoms'])]
+    greenBars = [i / j * 100 for i,j in zip(df['whiteNoms'], totals)]
+    orangeBars = [i / j * 100 for i,j in zip(df['blackNoms'], totals)]
+    blueBars = [i / j * 100 for i,j in zip(df['asianNoms'], totals)]
+    yellowBars = [i / j * 100 for i,j in zip(df['hispanicNoms'], totals)]
+
+    # plot
+    barWidth = 0.65
+    names = ('1930s','1940s','1950s','1960s','1970s', '1980s', '1990s', '2000s', '2010s')
+
+    # Create figure
+    plt.figure(figsize=(10,5))
+    # Create green Bars
+    plt.bar(r, greenBars, color='#b5ffb9', edgecolor='white', width=barWidth, label = 'White')
+    # Create orange Bars
+    plt.bar(r, orangeBars, bottom=greenBars, color='#f9bc86', edgecolor='white', width=barWidth, label = 'Black')
+    # Create blue Bars
+    plt.bar(r, blueBars, bottom=[i+j for i,j in zip(greenBars, orangeBars)], color='#a3acff', edgecolor='white', \
+            width=barWidth, label = 'Asian')
+    # Create yellow Bars
+    plt.bar(r, yellowBars, bottom=[i+j+k for i,j,k in zip(greenBars, orangeBars, blueBars)], color='#ffd1dc', \
+            edgecolor='white', width=barWidth, label = 'Hispanic')
+
+    # Custom x axis
+    plt.xticks(r, names)
+    plt.xlabel("Decade")
+    plt.ylabel('Percentage of Actors(%)')
+    plt.title('Distribution of Races of Actors Nominated for "Best Actor"')
+    plt.legend(loc = 'lower left')
+    plt.savefig(outdir + 'nominee_race_distribution.jpg')
+    # Show graphic
+    return
+
+
+'''
+FUNCTION: make_lineplot(indir, outdir)
+
+INPUTS: indir: path to data
+        outdir: path to save image to
+
+OUTPUTS: none: sames image to file
+'''
+def make_lineplot(indir, outdir):
+    x = [0, 1, 2, 3, 4, 5, 6, 7]
+    all_race_counts = {'White': [],
+                   'Black': [],
+                   'Asian': [],
+                   'Hispanic/Latino': [],
+                   'American Indian': []
+                   }
+    
+    raw_data = {'whiteNoms': [28, 50, 49, 49, 49, 47, 46, 39, 44],
+                'blackNoms': [0, 0, 0, 0, 1, 1, 4, 9, 6],
+                'asianNoms': [0, 0, 0, 0, 0, 1, 0, 2, 0],
+                'hispanicNoms': [0, 0, 1, 1, 0, 1, 0, 0, 0]
+               }
+    df = pd.DataFrame(raw_data)
+
+    # From raw value to percentage
+    totals = [i+j+k+l for i,j,k,l in zip(df['whiteNoms'], df['blackNoms'], df['asianNoms'], df['hispanicNoms'])]
+    greenBars = [i / j * 100 for i,j in zip(df['whiteNoms'], totals)]
+    orangeBars = [i / j * 100 for i,j in zip(df['blackNoms'], totals)]
+    blueBars = [i / j * 100 for i,j in zip(df['asianNoms'], totals)]
+    yellowBars = [i / j * 100 for i,j in zip(df['hispanicNoms'], totals)]
+    
+    for d in ['3', '4', '5', '6', '7', '8', '9', '0']:
+        all_actors = grab_race_counts(d, indir)
+        for r in list(all_actors.keys()):
+            all_race_counts[r].append(all_actors[r])
+
+    actorTotals = [i+j+k+l+m for i,j,k,l,m in zip(all_race_counts['White'],
+                                              all_race_counts['Black'],
+                                              all_race_counts['Asian'],
+                                              all_race_counts['Hispanic/Latino'],
+                                              all_race_counts['American Indian']
+                                             )]
+    whiteActors = [i / j * 100 for i,j in zip(all_race_counts['White'], actorTotals)]
+    blackActors = [i / j * 100 for i,j in zip(all_race_counts['Black'], actorTotals)]
+    asianActors = [i / j * 100 for i,j in zip(all_race_counts['Asian'], actorTotals)]
+    hispanicActors = [i / j * 100 for i,j in zip(all_race_counts['Hispanic/Latino'], actorTotals)]
+    amIndianActors = [i / j * 100 for i,j in zip(all_race_counts['American Indian'], actorTotals)]
+    
+    # Create figure
+    plt.figure(figsize=(10,10))
+
+    # All Native American Actors
+    plt.plot(x, amIndianActors, marker='o',  markerfacecolor='blue', color='lightblue', \
+             label="American Indian Actors", linewidth = 4)
+
+    # All White Actors
+    plt.plot(x, whiteActors, marker='o', markerfacecolor='green', color='#b5ffb9', \
+             label="White Actors", linewidth = 4)
+    
+    # White Actors Nominated
+    plt.plot(x, greenBars[:-1], marker='o', markerfacecolor='green', color='#b5ffb9', \
+             linestyle='dashed', label="White Nominees", linewidth = 4)
+
+    # All Black Actors
+    plt.plot(x, blackActors, marker='o', markerfacecolor='orange', color='#f9bc86', \
+             label="Black Actors", linewidth = 4)
+    
+    # Black Actors Nominated
+    plt.plot(x, orangeBars[:-1], marker='o', markerfacecolor='orange', color='#f9bc86', \
+             linestyle='dashed', label="Black Nominees", linewidth = 4)
+
+    # All Asian Actors
+    plt.plot(x, asianActors, marker='o', markerfacecolor='purple', color='#a3acff', \
+             label="Asian Actors", linewidth = 4)
+    
+    # Asian Actors Nominated
+    plt.plot(x, blueBars[:-1], marker='o', markerfacecolor='purple', color='#a3acff', \
+             linestyle='dashed', label="Asian Nominees", linewidth = 4)
+
+    # All Hispanic Actors
+    plt.plot(x, hispanicActors, marker='o',  markerfacecolor='red', color='#ffd1dc', 
+             label="Hispanic Actors", linewidth = 4)
+    
+    # Hispanic Actors Nominated
+    plt.plot(x, yellowBars[:-1], marker='o',  markerfacecolor='red', color='#ffd1dc', \
+             linestyle='dashed', label="Hispanic Nominees", linewidth = 4)
+
+    names = ('1930s','1940s','1950s','1960s','1970s', '1980s', '1990s', '2000s')
+    plt.ylabel('Percentage of Actors')
+    plt.xlabel('Decade')
+    plt.xticks(x, names)
+    plt.title('Percentange of All Actors versus Oscar Nominated Actors')
+    plt.legend()
+    plt.savefig(outdir + 'actorsRaceVSnomineesRace.jpg')
+    
+    return
+
     
 '''
-FUNCTION: 
+FUNCTION: create_plot_oscar_genre_dist_over_time(indir, outdir)
 
-INPUTS: 
+INPUTS: indir: path to data
+        outdir: path to save image to
 
-OUTPUTS: 
-
-DESCRIPTION: 
+OUTPUTS: none: sames image to file
 '''
 def create_plot_oscar_genre_dist_over_time(indir, outdir):
     year_genres = num_movies_per_genre(indir)
@@ -218,13 +437,13 @@ def create_plot_oscar_genre_dist_over_time(indir, outdir):
 
     
 '''
-FUNCTION: 
+FUNCTION: create_plot_oscar_nominated_genre_dist_over_time(indir_oscars, indir_movie_data, outdir)
 
-INPUTS: 
+INPUTS: indir_oscars: path to data
+        indir_movie_data: path to data
+        outdir: path to save image to
 
-OUTPUTS:
-
-DESCRIPTION: 
+OUTPUTS: none: sames image to file
 '''
 def create_plot_oscar_nominated_genre_dist_over_time(indir_oscars, indir_movie_data, outdir):
     genre_list = oscars_genres(indir_oscars, indir_movie_data)
@@ -236,13 +455,12 @@ def create_plot_oscar_nominated_genre_dist_over_time(indir_oscars, indir_movie_d
     
 
 '''
-FUNCTION: 
+FUNCTION: create_comparison_oscars_gg(indir, outdir)
 
-INPUTS: 
+INPUTS: indir: path to data
+        outdir: path to save image to
 
-OUTPUTS:
-
-DESCRIPTION: 
+OUTPUTS: none: sames image to file
 '''
 def create_comparison_oscars_gg(indir, outdir):
     golden = pd.read_csv(indir[2])
@@ -264,13 +482,12 @@ def create_comparison_oscars_gg(indir, outdir):
 
 
 '''
-FUNCTION: 
+FUNCTION: create_plots(indir, outdir):
 
-INPUTS: 
+INPUTS: indir: path to data
+        outdir: path to save image to
 
-OUTPUTS: 
-
-DESCRIPTION: 
+OUTPUTS: none: sames images to file
 '''
 def create_plots(indir, outdir):
     if outdir and not os.path.exists(outdir[0]):
@@ -279,6 +496,8 @@ def create_plots(indir, outdir):
     create_plot_oscar_genre_dist_over_time(indir[0], outdir[0])
     create_plot_oscar_nominated_genre_dist_over_time(indir[1], indir[0], outdir[0])
     create_comparison_oscars_gg(indir, outdir[0])
+    make_barchart(outdir[0])
+    make_lineplot(indir[3], outdir[0])
     
     
     
