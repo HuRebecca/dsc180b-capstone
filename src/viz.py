@@ -482,6 +482,83 @@ def create_comparison_oscars_gg(indir, outdir):
 
 
 '''
+FUNCTION: make_difference_graph(outdir)
+
+INPUTS: outdir: path to save image to
+
+OUTPUTS: none: sames images to file
+'''
+def make_difference_graph(indir, outdir):
+    all_race_counts = {'White': [],
+                   'Black': [],
+                   'Asian': [],
+                   'Hispanic/Latino': [],
+                   'American Indian': []
+                   }
+    
+    raw_data = {'whiteNoms': [28, 50, 49, 49, 49, 47, 46, 39, 44],
+                'blackNoms': [0, 0, 0, 0, 1, 1, 4, 9, 6],
+                'asianNoms': [0, 0, 0, 0, 0, 1, 0, 2, 0],
+                'hispanicNoms': [0, 0, 1, 1, 0, 1, 0, 0, 0]
+               }
+    df = pd.DataFrame(raw_data)
+
+    # From raw value to percentage
+    totals = [i+j+k+l for i,j,k,l in zip(df['whiteNoms'], df['blackNoms'], df['asianNoms'], df['hispanicNoms'])]
+    greenBars = [i / j * 100 for i,j in zip(df['whiteNoms'], totals)]
+    orangeBars = [i / j * 100 for i,j in zip(df['blackNoms'], totals)]
+    blueBars = [i / j * 100 for i,j in zip(df['asianNoms'], totals)]
+    pinkBars = [i / j * 100 for i,j in zip(df['hispanicNoms'], totals)]
+    
+    for d in ['3', '4', '5', '6', '7', '8', '9', '0']:
+        all_actors = grab_race_counts(d, indir)
+        for r in list(all_actors.keys()):
+            all_race_counts[r].append(all_actors[r])
+
+    actorTotals = [i+j+k+l+m for i,j,k,l,m in zip(all_race_counts['White'],
+                                              all_race_counts['Black'],
+                                              all_race_counts['Asian'],
+                                              all_race_counts['Hispanic/Latino'],
+                                              all_race_counts['American Indian']
+                                             )]
+    whiteActors = [i / j * 100 for i,j in zip(all_race_counts['White'], actorTotals)]
+    blackActors = [i / j * 100 for i,j in zip(all_race_counts['Black'], actorTotals)]
+    asianActors = [i / j * 100 for i,j in zip(all_race_counts['Asian'], actorTotals)]
+    hispanicActors = [i / j * 100 for i,j in zip(all_race_counts['Hispanic/Latino'], actorTotals)]
+    amIndianActors = [i / j * 100 for i,j in zip(all_race_counts['American Indian'], actorTotals)]
+    
+    x = [0, 1, 2, 3, 4, 5, 6, 7]
+    plt.figure(figsize=(20,10))
+    greenLine = [i - j for i,j in zip(greenBars, whiteActors)]
+    orangeLine = [i - j for i,j in zip(orangeBars, blackActors)]
+    blueLine = [i - j for i,j in zip(blueBars, asianActors)]
+    pinkLine = [i - j for i,j in zip(pinkBars, hispanicActors)]
+    amIndianActors = [0, 0, 0, 0, 0, 0, 0, 0]
+
+    # All Native American Actors
+    plt.plot(x, amIndianActors, marker='o',  markerfacecolor='blue', color='lightblue', label="American Indian Actors", linewidth = 4)
+
+    # All White Actors
+    plt.plot(x, greenLine, marker='o', markerfacecolor='green', color='#b5ffb9', label="White Actors", linewidth = 4)
+
+    # All Black Actors
+    plt.plot(x, orangeLine, marker='o', markerfacecolor='orange', color='#f9bc86', label="Black Actors", linewidth = 4)
+
+    # All Asian Actors
+    plt.plot(x, blueLine, marker='o', markerfacecolor='purple', color='#a3acff', label="Asian Actors", linewidth = 4)
+
+    # All Hispanic Actors
+    plt.plot(x, pinkLine, marker='o',  markerfacecolor='red', color='#ffd1dc', label="Hispanic Actors", linewidth = 4)
+
+    names = ('1930s','1940s','1950s','1960s','1970s', '1980s', '1990s', '2000s')
+    plt.ylabel('Difference')
+    plt.xlabel('Decade')
+    plt.xticks(x, names)
+    plt.title('Percentage Nominated Actors MINUS Percentage of All Actors Per Race')
+    plt.legend()
+    plt.savefig(outdir + 'difference.jpg')
+
+'''
 FUNCTION: create_plots(indir, outdir):
 
 INPUTS: indir: path to data
@@ -498,6 +575,7 @@ def create_plots(indir, outdir):
     create_comparison_oscars_gg(indir, outdir[0])
     make_barchart(outdir[0])
     make_lineplot(indir[3], outdir[0])
+    make_difference_graph(indir[3], outdir[0])
     
     
     

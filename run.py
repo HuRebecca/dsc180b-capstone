@@ -35,8 +35,8 @@ def main(targets):
                 
     #test full project; data ingestion process and visuals
     if 'test-project' in targets:
-#         cfg = load_params(test_ingest_params)
-#         collect_data(cfg["websites"], cfg["outdir"], "test")
+        cfg = load_params(test_ingest_params)
+        collect_data(cfg["websites"], cfg["outdir"], "test")
         
         cfg = load_params(visuals_params)
         create_plots(cfg["indir"], cfg["outdir"])
