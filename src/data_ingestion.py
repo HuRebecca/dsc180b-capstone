@@ -742,28 +742,37 @@ def collect_data(websites, outdir, flag):
         os.makedirs(outdir[0])
     
     #gather all winners and nominees from each year
+    print("Part 1/10: Gathering all Oscar Winners and Nominees")
     create_csv_of_actors(websites[0], outdir[0])
     
     #keep only years 1934- 2008
+    print("Part 2/10: Cleaning file of Oscar Winners and Nominees")
     clean_actorsTemp("testData/actorsTemp.csv", outdir[0])
   
     #add ethnicity to file with all winners and nominees from each year 
+    print("Part 3/10: Adding ethnicities to Oscar Winners and Nominees file")
     add_ethnicity_to_nominees_and_winners(outdir[0])
   
     #gather all movies made every year since 1934 and actors/actresses in them
+    print("Part 4/10: Creating Files Containing Every Movie Made Every Year (1934 - 2008)")
     all_movies_per_year(outdir[0], flag)
     
     #identify one male actors from each movie made each year
+    print("Part 5/10: Finding Lead Actor for Every Movie Made Every Year")
     only_males(outdir[0])
     
     #find ethnicity for male actor in each movies made each year 
+    print("Part 6/10: Adding Ethnicities to Lead Actor from Every Movie Made Every Year")
     get_ethnicity_for_all_years(outdir[0])
     
-    #gather the genre of every movie made every year 
+    #gather the genre of every movie made every year
+    print("Part 7/10: Gathering the Genre of Every Movie Made Every Year (1934 - 2008)")
     all_movies_per_year_with_genre(outdir[0], flag)
 
     #gather all winners and nominees from each year at the Golden Globes
+    print("Part 8/10: Gathering all Golden Globe Winners and Nominees for Best Drama")
     create_csv_of_gg(outdir[0])
     
     #add ethnicity to file with all winners and nominees from each year at the Golden Globes
+    print("Part 9/10: Adding ethnicities to Golden Globe Winners and Nominees file")
     get_ethnicities_gg(outdir[0])

@@ -567,6 +567,7 @@ INPUTS: indir: path to data
 OUTPUTS: none: sames images to file
 '''
 def create_plots(indir, outdir):
+    print("Part 10/10: Creating Visuals")
     if outdir and not os.path.exists(outdir[0]):
         os.makedirs(outdir[0])
         
