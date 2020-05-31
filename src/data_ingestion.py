@@ -388,7 +388,7 @@ OUTPUTS: None (writes to csv file)
 DESCRIPTION: This function calls on other functions to create the csv
     files for the all the movies made each year between 1934 and 2019
 '''
-def all_movies_per_year_with_genre(outdir):
+def all_movies_per_year_with_genre(outdir, flag):
     #path to read input files from
     path = outdir + 'ListOfMovPerYearWithGenre'
     
