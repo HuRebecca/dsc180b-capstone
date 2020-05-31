@@ -30,7 +30,7 @@ def main(targets):
 
     # make the clean target
     if 'clean' in targets:
-        shutil.rmtree('testData/', ignore_errors=True)
+        #shutil.rmtree('testData/', ignore_errors=True)
         shutil.rmtree('finalVisuals/', ignore_errors=True)
                 
     #test full project; data ingestion process and visuals
