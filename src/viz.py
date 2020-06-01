@@ -148,7 +148,7 @@ INPUTS: df: dataframe with ethnicity info
 OUTPUTS: df_eth: dataframe with race changed to a group ethnicity
 '''
 def get_race(df):
-    df['race'] = df['ethnicity'].apply(create_race)
+    df['race'] = df['ethnicity'].apply(create_race) # create a column for races using 'create_race' helper function
     onehot = pd.get_dummies(df['race'])
     df = df.join(onehot)
     df_eth = df[['year','Asian', 'Black', 'Hispanic/Latino', 'White']]
@@ -209,6 +209,7 @@ INPUTS: year: int
 OUTPUTS: dict
 '''
 def create_decade(year):
+    # helper function to get the decade a particular year belongs to
     v = str(year)[2]
     return decade_dict[int(v)]
 
@@ -221,6 +222,7 @@ INPUTS: ethnicities: list of strings
 OUTPUTS: k: ethnicity that matched race
 '''
 def create_race(ethnicities):
+    # create a dictionary that maps ethnicity to race
     race_dict = {'Black': ['AfricanAmerican', 'Ugandan', 'CubanAfricanCuban', 'AfricanTrinidadian', 'Nigerian'],
              'American Indian': ['Cherokee', 'Native'],
              'Asian': ['Indian', 'Chinese', 'Korean', 'Japanese', 'Taiwanese', 'Thai', 'Vietnamese'],
@@ -228,10 +230,12 @@ def create_race(ethnicities):
                                  'Puerto', 'Rican', 'AfricanTrinidadian']
             }
     ethnicity_string = ''.join(str(elem) for elem in ethnicities)
+    # map ethnicity to race
     for k in race_dict.keys():
         for e in race_dict[k]:
             if e in ethnicity_string:
                 return k
+    # return 'White' if ethnicity not found in non-white dict
     return 'White'
 
 
@@ -244,18 +248,20 @@ INPUTS: decade: list of decades
 OUTPUTS: all_race_counts: dict
 '''
 def grab_race_counts(decade, indir):
+    # create empty dict for race counts
     all_race_counts = {'White': 0,
                        'Black': 0,
                        'American Indian': 0,
                        'Asian': 0,
                        'Hispanic/Latino': 0
                     }
-
+    # for each file in directory, read each file into a DataFrame
     for year in os.listdir(indir):
         if year.endswith('.csv') and str(year)[2] == decade:
             sample = pd.read_csv(indir + "/" + year).dropna()
         else:
             continue
+        # use helper function to count frequency of each race
         race_series = sample['Ethnicity'].apply(create_race).value_counts()
         for k in all_race_counts.keys():
             if k in list(race_series.index):
