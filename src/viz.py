@@ -165,9 +165,9 @@ INPUTS: ethnicities: list of strings
 OUTPUTS: grouped_years: dict
 '''
 def create_time_periods(df):
-    bins = np.arange(1930, 2015, step = 5)
+    bins = np.arange(1930, 2015, step = 5) # creates bins of every 5 years
     df['time'] = pd.cut(df['year'], bins, include_lowest= True)
-    grouped_years = df.groupby('time').sum()
+    grouped_years = df.groupby('time').sum() # sums up number of movies per 5 year period
     grouped_years = grouped_years.reset_index()
     intervals = list(grouped_years['time'])
     start = [int(round(x.left)) for x in intervals]
@@ -175,7 +175,7 @@ def create_time_periods(df):
     grouped_years['start'] = start
     grouped_years = grouped_years[['start','Asian', 'Black', 'Hispanic/Latino', 'White', 'Non_White', 'Total']]
     for race in ['Asian', 'Black', 'Hispanic/Latino', 'White', 'Non_White']:
-        grouped_years[race] = grouped_years[race]/grouped_years['Total']
+        grouped_years[race] = grouped_years[race]/grouped_years['Total'] # calculates race distribution over all actors in time period
     return grouped_years
 
 
