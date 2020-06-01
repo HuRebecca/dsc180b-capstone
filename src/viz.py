@@ -24,7 +24,7 @@ OUTPUTS: dataframe: contains number of movies made per genre
 '''
 def num_movies_per_genre(path):
     year_genres = []
-    most_pop_genres = ['Comedy', 'Drama', 'Western']
+    most_pop_genres = ['Comedy', 'Drama', 'Western'] # top three most popular genres
     for file in os.listdir(path):
         if "ipynb" in file:
             continue
@@ -34,7 +34,7 @@ def num_movies_per_genre(path):
         filename = os.path.join( path, file)
         data = pd.read_csv(filename, header = None)
         num_movies = len(data)
-        for genre in data[2]:
+        for genre in data[2]: # cleans the genre string
             cleaned = (genre.replace("'", '').replace("[", '').replace("]", '').replace("\\n", ''))
             cleaned = cleaned.split(', ')
             for elem in cleaned:
@@ -42,7 +42,7 @@ def num_movies_per_genre(path):
                     if elem.strip() in most_pop_genres:
                         yearly.append(elem.strip())
         yearly = Counter(yearly)
-        for key in most_pop_genres:
+        for key in most_pop_genres: # if genre is empty, fills it with a 0
             if key not in yearly:
                 yearly[key] = 0
         yearly = sorted(yearly.items())
@@ -52,7 +52,7 @@ def num_movies_per_genre(path):
         for tup in yearly:
             counts.append(tup[1])
         year_genres.append(counts)
-    df = pd.DataFrame(year_genres)
+    df = pd.DataFrame(year_genres) # creates a dataframe of number of genres per year
     df.columns = ['Comedy', 'Drama', 'Western', 'year', 'num_movies']
 
     return df
@@ -60,18 +60,16 @@ def num_movies_per_genre(path):
 
 '''
 FUNCTION: plot_time_periods(df, fig_file_name, plot_title, most_pop_genres)
-
 INPUTS: df: dataframe of number of movies per genre
         fig_file_name: outdir to save image
         plot_title: title of the graph
         most_pop_genres: list of most popular genres
-
 OUTPUTS: Nothing: saves graph as image to outdir
 '''
 def plot_time_periods(df, fig_file_name, plot_title, most_pop_genres):
-    bins = np.arange(1930, 2015, step = 5)
+    bins = np.arange(1930, 2015, step = 5) # creates bins of every 5 years from 1930 to 2015
     df['time'] = pd.cut(df['year'], bins, include_lowest= True)
-    grouped_years = df.groupby('time').sum()
+    grouped_years = df.groupby('time').sum() # groups movies in 5 year intervals
     grouped_years = grouped_years.reset_index()
     intervals = list(grouped_years['time'])
     start = [int(round(x.left)) for x in intervals]
@@ -79,11 +77,11 @@ def plot_time_periods(df, fig_file_name, plot_title, most_pop_genres):
     grouped_years['start'] = start
     
     for genre in most_pop_genres:
-        grouped_years[genre] = grouped_years[genre]/grouped_years['num_movies']
+        grouped_years[genre] = grouped_years[genre]/grouped_years['num_movies'] # turns count of movies into proportions
     most_pop_genres.append('start')
     grouped_years = grouped_years[most_pop_genres]
     grouped_years = grouped_years.set_index('start')
-    ax = grouped_years.plot.bar(figsize = (10, 10), title = plot_title)
+    ax = grouped_years.plot.bar(figsize = (10, 10), title = plot_title) # plots movie percentages over time
     ax.set_xlabel('Start of Time Period')
     ax.set_ylabel('Percentage of All Movies')
     fig = ax.get_figure()
@@ -93,10 +91,8 @@ def plot_time_periods(df, fig_file_name, plot_title, most_pop_genres):
 
 '''
 FUNCTION: oscars_genres(oscars_file, path)
-
 INPUTS: oscars_file: csv for oscars nominations/winners
         path: path to folder containing each year's movies
-
 OUTPUTS: df: dataframe of number of movies per genre
 '''
 def oscars_genres(oscars_file, path):
@@ -104,12 +100,12 @@ def oscars_genres(oscars_file, path):
     most_pop = ['Drama', 'Comedy', 'Biography']
     oscars_file = pd.read_csv(oscars_file)
     
-    for i, row in oscars_file.iterrows():
+    for i, row in oscars_file.iterrows(): # loops through all oscar nominated movies and finds its genre
         yearly = []
         num_movies = 0
         year = row['Year']
         file = str(year)+'.csv'
-        if year not in [1999, 2000] and year < 2008:
+        if year not in [1999, 2000] and year < 2008: # years without genre data
             filename = os.path.join(path, file)
             data = pd.read_csv(filename, header = None)
             movie = row['Movie']
@@ -119,7 +115,7 @@ def oscars_genres(oscars_file, path):
                 cleaned == None
             else:
                 genre = genre[0]
-                cleaned = (genre.replace("'", '').replace("[", '').replace("]", '').replace("\\n", ''))
+                cleaned = (genre.replace("'", '').replace("[", '').replace("]", '').replace("\\n", '')) # cleans genre string
                 cleaned = str(cleaned).split(', ')
                 cleaned = cleaned[0]
         else:
